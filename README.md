@@ -2,7 +2,7 @@
 Este projeto é um sistema de gestão hospitalar com funcionalidades de cadastro e controle de pacientes, doutores e administradores, incluindo autenticação com tokens e criptografia de senhas. Desenvolvido com NodeJs, Express, Sequelize e banco de dados MySQL.
 
 ## 🏥 Sobre a documentação
-É possível acessa-la clicando aqui.
+É possível acessá-la [clicando aqui](https://github.com/lcarlosrezende/projeto-sghss/blob/master/Documentacao%20SGHSS%20-%20Luiz%204303616.pdf).
 
 ## 🗄️ Estrutura do Banco de Dados
 
