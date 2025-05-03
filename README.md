@@ -1,17 +1,73 @@
-# SGHSS - Sistema de Gestão Hospitalar 
-Este projeto é um sistema de gestão hospitalar com funcionalidades de cadastro e controle de pacientes, doutores e administradores, incluindo autenticação com tokens e criptografia de senhas. Desenvolvido com NodeJs, Express, Sequelize e banco de dados MySQL.
+# 💊 SGHSS - Sistema de Gestão Hospitalar
 
-## 🏥 Sobre a documentação
-É possível acessá-la [clicando aqui](https://github.com/lcarlosrezende/projeto-sghss/blob/master/Documentacao%20SGHSS%20-%20Luiz%204303616.pdf).
+Este repositório contém o **SGHSS**, um sistema de gestão hospitalar com funcionalidades de cadastro e controle de pacientes, doutores e administradores. O sistema oferece autenticação via tokens (JWT), criptografia de senhas e relacionamentos entre entidades. Foi desenvolvido com **Node.js**, **Express**, **Sequelize** e **MySQL**.
+
+---
+
+## 📄 Documentação
+
+A documentação completa do projeto pode ser acessada em PDF:
+
+👉 [Clique aqui para visualizar](https://github.com/lcarlosrezende/projeto-sghss/blob/master/Documentacao%20SGHSS%20-%20Luiz%204303616.pdf)
+
+---
+
+## 🚀 Como rodar o projeto
+
+### ✅ Pré-requisitos
+
+- Node.js instalado (versão 16+ recomendada)
+- MySQL em execução
+- Editor de código (ex: VS Code)
+- Gerenciador de pacotes (NPM)
+
+### 🔧 Passos para executar
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/lcarlosrezende/projeto-sghss.git
+   cd projeto-sghss
+   ```
+
+2. **Instale as dependências:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configure o arquivo `.env`:**
+
+   Crie um arquivo `.env` na raiz do projeto com os seguintes dados:
+
+   ```env
+   DB_HOST=localhost
+   DB_USER=root
+   DB_PASSWORD=sua_senha
+   DB_NAME=sghss_dev
+   JWT_SECRET=sua_chave_secreta
+   ```
+
+4. **Crie o banco de dados:**
+
+   Execute o script SQL abaixo no seu MySQL
+
+5. **Inicie a aplicação:**
+
+   ```bash
+   npm start
+   ```
+
+---
 
 ## 🗄️ Estrutura do Banco de Dados
 
-O banco de dados utilizado se chama `sghss_dev`. A estrutura completa está definida no script DDL abaixo.
+O banco de dados utilizado se chama `sghss_dev`. Abaixo está o script DDL completo para criação das tabelas e relacionamentos:
 
 <details>
-<summary>Clique para expandir o script de criação do banco</summary>
+<summary>📜 Clique para expandir o script de criação do banco</summary>
 
-
+```sql
 -- Criar o banco de dados
 CREATE DATABASE IF NOT EXISTS sghss_dev;
 USE sghss_dev;
@@ -75,3 +131,25 @@ CREATE TABLE IF NOT EXISTS Admin_Doutor (
     FOREIGN KEY (admin_id) REFERENCES Admin(admin_id),
     FOREIGN KEY (doutor_id) REFERENCES Doutor(doutor_id)
 );
+```
+
+</details>
+
+---
+
+## 📁 Estrutura de Pastas (exemplo)
+
+```
+projeto-sghss/
+│
+├── controllers/
+├── models/
+├── routes/
+├── services/
+├── config/
+├── .env
+├── index.js
+├── package.json
+└── README.md
+```
+
