@@ -1,9 +1,19 @@
-SCRIPT CRIAÇÃO DE BANCO DDL
+# SGHSS - Sistema de Gestão Hospitalar 
+Este projeto é um sistema de gestão hospitalar com funcionalidades de cadastro e controle de pacientes, doutores e administradores, incluindo autenticação com tokens e criptografia de senhas. Desenvolvido com NodeJs, Express, Sequelize e banco de dados MySQL.
 
--- Criar o banco de dados DDL
+## 🏥 Sobre a documentação
+É possível acessa-la clicando aqui.
+
+## 🗄️ Estrutura do Banco de Dados
+
+O banco de dados utilizado se chama `sghss_dev`. A estrutura completa está definida no script DDL abaixo.
+
+<details>
+<summary>Clique para expandir o script de criação do banco</summary>
+
+
+-- Criar o banco de dados
 CREATE DATABASE IF NOT EXISTS sghss_dev;
-
--- Usar o banco de dados criado
 USE sghss_dev;
 
 -- Tabela Pessoa
@@ -33,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Paciente (
     FOREIGN KEY (pessoa_id) REFERENCES Pessoa(pessoa_id)
 );
 
--- Tabela Admin com token
+-- Tabela Admin
 CREATE TABLE IF NOT EXISTS Admin (
     admin_id INT AUTO_INCREMENT PRIMARY KEY,
     senha VARCHAR(100) NOT NULL,
@@ -41,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Admin (
     token VARCHAR(255)
 );
 
--- Relação Paciente-Doutor (muitos para muitos)
+-- Relações
 CREATE TABLE IF NOT EXISTS Paciente_Doutor (
     paciente_id INT,
     doutor_id INT,
@@ -50,7 +60,6 @@ CREATE TABLE IF NOT EXISTS Paciente_Doutor (
     FOREIGN KEY (doutor_id) REFERENCES Doutor(doutor_id)
 );
 
--- Relação Admin-Paciente
 CREATE TABLE IF NOT EXISTS Admin_Paciente (
     admin_id INT,
     paciente_id INT,
@@ -59,7 +68,6 @@ CREATE TABLE IF NOT EXISTS Admin_Paciente (
     FOREIGN KEY (paciente_id) REFERENCES Paciente(paciente_id)
 );
 
--- Relação Admin-Doutor
 CREATE TABLE IF NOT EXISTS Admin_Doutor (
     admin_id INT,
     doutor_id INT,
@@ -67,13 +75,3 @@ CREATE TABLE IF NOT EXISTS Admin_Doutor (
     FOREIGN KEY (admin_id) REFERENCES Admin(admin_id),
     FOREIGN KEY (doutor_id) REFERENCES Doutor(doutor_id)
 );
-
-select * from admin_paciente;
-select * from paciente;
-select * from admin_doutor;
-select * from paciente_doutor;
-select * from doutor;
-select * from admin;
-
-
-select * from pessoa;
