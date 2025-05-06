@@ -145,7 +145,6 @@ projeto-sghss/
 ├── controllers/
 ├── models/
 ├── routes/
-├── services/
 ├── config/
 ├── .env
 ├── index.js
